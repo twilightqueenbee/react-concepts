@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react'
 
-const Card = (props) =>{
-    const {username} = data
-    
-    return(
-         <div>Card</div>
-    )
+const Card = (props) => {
+    const {username}=props.data
+  return (
+    <div className='card'>
+        <h1>{username}</h1>
+    </div>
+  )
 }
+
+export default Card

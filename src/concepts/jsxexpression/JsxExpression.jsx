@@ -23,7 +23,7 @@ const JsxExpression = () =>{
     }
 
     let is_active = true
-    if(is_active == true)
+    if(is_active === true)
     {
         console.log("true block");
     }

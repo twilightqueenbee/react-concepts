@@ -1,10 +1,10 @@
 import React from 'react'
-import ReactMemo from './ReactMemo'
+import ReactMemo from './reactmemo/ReactMemo'
 
 const ReactOptimization = () => {
   return (
     <div>
-        <ReactMemo />
+        <ReactMemo/>
     </div>
   )
 }

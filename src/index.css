@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+.active{
+    text-decoration: underline;
+    color: orange;
+}
