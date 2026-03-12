@@ -6,6 +6,14 @@ import Contact from "../pages/Contact";
 import Help from "../pages/Help";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import UserDashboard from "../dashboard/UserDashboard";
+import PrivateRouting from "../privaterouting/PrivateRouting";
+import DashboardHome from "../dashboard/dashboardpages/DashboardHome";
+import Profile from "../dashboard/dashboardpages/Profile";
+import UpdateProfile from "../dashboard/dashboardpages/UpdateProfile";
+import UpdateStatus from "../privaterouting/UpdateStatus";
+import AddNotes from "../dashboard/dashboardpages/AddNotes";
+import AllNotes from "../dashboard/dashboardpages/AllNotes";
 
 
 export const routes=createBrowserRouter([
@@ -15,7 +23,9 @@ export const routes=createBrowserRouter([
         children:[
             {
                 path:"/",
-                element:<Home/>
+                element:<UpdateStatus>
+                    <Home/>
+                    </UpdateStatus>
             },
             {
                 path:"/about",
@@ -29,9 +39,34 @@ export const routes=createBrowserRouter([
                 path:"/help",
                 element:<Help/>
             },
-             {
-                 path:"/dashboard",
-                    element:<PrivateRouting><UserDashboard/></PrivateRouting>
+            {
+                path:"/dashboard",
+                element:<PrivateRouting>
+                    <UserDashboard/>
+                </PrivateRouting>,
+                children:[
+                    {
+                        path:"/dashboard",
+                        element:<DashboardHome/>
+                    },
+                    {
+                        path:"/dashboard/profile/:userId",
+                        element:<Profile/>
+                    },
+                    {
+                        path:"/dashboard/updateprofile/:userId",
+                        element:<UpdateProfile/>
+                    },
+                    {
+                        path:"/dashboard/addnotes/:userId",
+                        element:<AddNotes />
+                    },
+                    {
+                        path:"/dashboard/allnotes/:userId",
+                        element:<AllNotes />
+                    }
+
+                ]
             }
         ]
     },
@@ -43,5 +78,4 @@ export const routes=createBrowserRouter([
         path:"/register",
         element:<Register/>
     }
-   
 ])

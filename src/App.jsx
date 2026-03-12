@@ -13,6 +13,7 @@ import React from "react";
 // import HooksHome from "./concepts/hooks/HooksHome";
 import CrudOperations from "./concepts/crudoperation/CrudOperations";
 // import {ToastContainer} from 'react-toastify';
+import UseStateCase from "./specialcaseinterview/UseStateCase";
 
 const App = () => {
     return (
@@ -29,8 +30,9 @@ const App = () => {
             {/* <RouterLayout/> */}
             {/* <ReactOptimization /> */}
             {/* <HooksHome /> */}
-            <CrudOperations />
+            {/* <CrudOperations /> */}
             {/* <ToastContainer /> */}
+            <UseStateCase />
 
         </div>
     )

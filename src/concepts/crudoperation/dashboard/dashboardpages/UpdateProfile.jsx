@@ -1,10 +1,11 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
-const Register = () => {
-
+const UpdateProfile = () => {
+  const {userId}=useParams()
+  const navigate=useNavigate()
   const [formData, setFormData] = useState({
     username: "",
     age: "",
@@ -15,10 +16,15 @@ const Register = () => {
     gender: ""
   });
 
-  const navigate=useNavigate()
-  const {username,age,email,password,dob,city,gender}=formData
+  const fdata=async () => {
+    const {data}=await axios.get(`http://localhost:3000/users/${userId}`)
+    setFormData(data)
+  }
+  useEffect(()=>{
+    fdata()
+  },[])
 
-  const handleChange = (e) => {
+    const handleChange = (e) => {
     const { name, value } = e.target;
 
     setFormData({
@@ -27,10 +33,11 @@ const Register = () => {
     });
   };
 
+  
   const handleform = async(e) => {
     e.preventDefault()
     console.log(formData);
-
+    const {username,age,email,password,dob,city,gender}=formData
     //! send the data to backend for register purpose
     // if register done successfully then navigate to login page
         try {
@@ -38,9 +45,9 @@ const Register = () => {
             toast.error("All fileds are required",{position:"top-center"})
             return
           }
-          const {data}=await axios.post("http://localhost:3000/users",formData)
+          const {data}=await axios.put(`http://localhost:3000/users/${userId}`,formData)
           console.log(data)
-          toast.success("Register successfully",{position:"top-right"})
+          toast.success("update successfully",{position:"top-right"})
           setFormData(
             {
               username: "",
@@ -52,7 +59,7 @@ const Register = () => {
               gender: ""
             }
           )
-          navigate("/login")
+          navigate(`/dashboard/profile/${userId}`)
             
         } catch (error) {
             console.log(error)
@@ -61,12 +68,12 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-cyan-100">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-cyan-100">
 
       <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
 
         <h2 className="text-2xl font-bold text-center mb-6">
-          Register
+          Update Profile
         </h2>
 
         <form onSubmit={handleform} className="space-y-4">
@@ -174,7 +181,7 @@ const Register = () => {
             bg-gradient-to-r from-indigo-500 to-blue-500 
             hover:from-indigo-600 hover:to-blue-600 transition"
           >
-            Register
+            Update
           </button>
 
         </form>
@@ -182,7 +189,7 @@ const Register = () => {
       </div>
 
     </div>
-  );
-};
+  )
+}
 
-export default Register;
+export default UpdateProfile

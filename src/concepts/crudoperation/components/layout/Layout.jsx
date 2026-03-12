@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <div className='w-screen h-auto bg-amber-300'>
+    <div className='w-screen h-auto '>
         <Navbar/>
         <Outlet/>
     </div>
