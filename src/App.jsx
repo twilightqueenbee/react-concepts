@@ -13,7 +13,7 @@ import React from "react";
 // import HooksHome from "./concepts/hooks/HooksHome";
 import CrudOperations from "./concepts/crudoperation/CrudOperations";
 // import {ToastContainer} from 'react-toastify';
-import UseStateCase from "./specialcaseinterview/UseStateCase";
+import UseStateCase from "./concepts/specialcaseinterview/UseStateCase";
 
 const App = () => {
     return (
