@@ -18,7 +18,9 @@ const AxiosConcept = () => {
         <h1>AxiosConcept</h1>
         {
             products.length === 0 ? <h1>Loading...</h1> : products.map((ele, index) => {
-                return <h1 key={index}>{ele.title}</h1>
+                return (
+                    <h3 key={index}>{ele.title}</h3>
+                )
             })
         }
     </div>

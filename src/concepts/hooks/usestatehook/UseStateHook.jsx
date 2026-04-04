@@ -5,10 +5,10 @@ const UseStateHook = () => {
        const [count,setCount]= useState(0)
        
        const updateValue=()=>{
-            setCount(count+1)
+            setCount(count + 1)
        }
        const sub=()=>{
-          setCount(count-1)
+          setCount(count - 1)
        }
        const reset=()=>{
         setCount(0)

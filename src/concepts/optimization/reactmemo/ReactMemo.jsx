@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Child from './child';
+import Child from './Child';
 
 const ReactMemo = () => {
     const[count, setCount] = useState(0);

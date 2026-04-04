@@ -6,7 +6,7 @@ const Globalcontext = ({children}) => {
     const [currentuser,setCurrentuser]=useState(null)
   return (
     <GlobalcontextApi.Provider value={{currentuser,setCurrentuser}}>
-        { children}
+        { children }
     </GlobalcontextApi.Provider>
   )
 }

@@ -1,6 +1,25 @@
 {
   "users": [
-    
-    "$schema": "./node_modules/json-server/schema.json"
- 
+    {
+      "id": "33c4",
+      "username": "navyaraut62@gmail.com",
+      "age": "21",
+      "email": "navyaraut62@gmail.com",
+      "password": "12345",
+      "dob": "2026-03-12",
+      "city": "Hyderabad",
+      "gender": "Female"
+    },
+    {
+      "id": "e4ef",
+      "username": "chiki",
+      "age": "21",
+      "email": "navyaraut62@gmail.com",
+      "password": "12345",
+      "dob": "2026-03-12",
+      "city": "Hyderabad",
+      "gender": "Female"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

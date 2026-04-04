@@ -4,7 +4,9 @@ const Child = ({name}) => {
     console.log("child");
     
   return (
-    <div>{name}</div>
+    <div>
+      <h1>{name}</h1>
+    </div>
   )
 }
 
